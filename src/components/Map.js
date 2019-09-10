@@ -1,6 +1,6 @@
 import React from "react";
 import MapGL, { Source, Layer, Marker } from '@urbica/react-map-gl';
-import { getStops, getRoutes } from "../services/api/Helper";
+import { getMapboxAPIKey, getStops, getRoutes } from "../services/api/Helper";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 export default class Map extends React.Component {
@@ -8,8 +8,8 @@ export default class Map extends React.Component {
         super(props);
         this.state = {
             viewport: {
-                latitude: 33.48979,
-                longitude: -86.906364,
+                latitude: 33.453664,
+                longitude: -86.928136,
                 zoom: 14,
                 stops: [],
                 routes: []
@@ -48,13 +48,13 @@ export default class Map extends React.Component {
             fontSize: "20px"
         };
 
-        const colors = ["green", "orange", "pink"];
+        const colors = ["green", "orange", "pink", "blue"];
 
         return (
             <MapGL
                 style={{ width: '100%', height: '800px' }}
                 mapStyle='mapbox://styles/mapbox/light-v9'
-                accessToken="pk.eyJ1IjoieGFkYW14ayIsImEiOiJjazBja3Rqc3QwNHY5M2xxZGlhY2UxZXYzIn0.E8gfHnXgxZPy1eLQsx0kqg"
+                accessToken={getMapboxAPIKey()}
                 onViewportChange={(viewport) => this.setState({ viewport })}
                 {...viewport}
             >
