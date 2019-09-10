@@ -4,6 +4,7 @@ Witty description.
 ## Installation
 
 Install [NodeJS](https://nodejs.org/en/download/) - Reboot afterwards
+
 Install [Yarn](https://yarnpkg.com/lang/en/docs/install/#windows-stable)
 
 Pull the project to your local machine
