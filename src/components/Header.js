@@ -8,7 +8,7 @@ class Header extends React.Component {
     if (this.props.coords) {
       return (
         <span>
-          Closest Bus Stop is { getClosest(this.props.coords.latitude, this.props.coords.longitude).toFixed(1) } miles away.
+          Closest Bus Stop is { getClosest(this.props.coords.latitude, this.props.coords.longitude).toFixed(2) } miles away.
         </span>
       )
     }
