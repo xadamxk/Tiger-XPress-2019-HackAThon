@@ -13,7 +13,9 @@ export default class App extends React.Component {
     super();
     this.state = {
       drawerOpen: false,
-      secondaryView: 'Announcements'
+      secondaryView: 'Announcements',
+      streetViewLat: 0.0,
+      streetViewLong: 0.0
     };
   }
 
@@ -29,15 +31,33 @@ export default class App extends React.Component {
     });
   }
 
+  openAnnouncements() {
+    this.setState({
+      secondaryView: 'Announcements'
+    })
+  }
+
+  openStreetView(latitude, longitude) {
+    this.setState({
+      secondaryView: 'StreetView',
+      streetViewLat: latitude,
+      streetViewLong: longitude
+    })
+  }
+
   render() {
     return (
       <Row>
         <Header
           onMore={this.openDrawer.bind(this)}
         />
-        <Map />
+        <Map openStreetView={this.openStreetView}/>
         <Announcements visible={this.state.secondaryView === 'Announcements'}/>
-        <StreetView visible={this.state.secondaryView === 'StreetView'}/>
+        <StreetView
+          visible={this.state.secondaryView === 'StreetView'}
+          latitude={this.state.streetViewLat}
+          longitude={this.state.streetViewLong}
+        />
         <FavoritesDrawer
           visible={this.state.drawerOpen}
           onClose={this.closeDrawer.bind(this)}
