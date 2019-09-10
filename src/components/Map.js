@@ -8,11 +8,9 @@ export default class Map extends React.Component {
         super(props);
         this.state = {
             viewport: {
-                latitude: 33.49065,
-                longitude: -86.906867,
-                zoom: 14,
-                stops: [],
-                routes: []
+                latitude: 33.469567,
+                longitude: -86.919618,
+                zoom: 13
             }
         }
     }
@@ -93,6 +91,13 @@ export default class Map extends React.Component {
                         </div>
                     )
                 })}
+                {/* Markers */}
+                <Marker longitude={-86.906867} latitude={33.49065} onDragEnd={onDragEnd}>
+                    <div style={style}>🏫</div>
+                </Marker>
+                <Marker longitude={-86.928096} latitude={33.459905} onDragEnd={onDragEnd}>
+                    <div style={style}>🏫</div>
+                </Marker>
             </MapGL>
         )
     }
