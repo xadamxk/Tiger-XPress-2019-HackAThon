@@ -13,11 +13,12 @@ export function getClosest(lat1, long1) {
     }
 
     const route1401dist = route1401.geometry.coordinates.map(x => distance(lat1, long1, x[1], x[0], 'M'))
+    //console.log(route1401dist)
 
-    return route1401dist.reduce(reducer, 0.0)
+    return route1401dist.reduce(reducer)
 }
 
-const reducer = (bigVal, currentVal) => bigVal < currentVal ? currentVal : bigVal
+const reducer = (smallVal, currentVal) => smallVal < currentVal ? smallVal : currentVal
 
 
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

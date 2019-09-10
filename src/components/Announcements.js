@@ -1,6 +1,7 @@
 import React from "react";
 import chatManager from '../lib/chatManager';
-import { List, Avatar } from 'antd';
+import { List } from 'antd';
+import Avatar from './Avatar';
 import moment from 'moment';
 
 export default class Announcements extends React.Component {
@@ -22,25 +23,28 @@ export default class Announcements extends React.Component {
     //return this.state.messages.map(this.renderMessage)
     //return(null)
 
-    return (
-      <div>
-        <h2 style={{textAlign: 'left', paddingLeft: '5%', paddingTop: '5%'}}>Announcements</h2>
-        <List
-          itemLayout="horizontal"
-          style={{textAlign: 'left'}}
-          dataSource={this.state.messages}
-          renderItem={item => (
-            <List.Item>
-              <List.Item.Meta
-                avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                title={item.userStore.users[item.senderId].name + " (" + moment(item.createdAt).format("lll") + ")"}
-                description={item.parts[0].payload.content}
-              />
-            </List.Item>
-          )}
-        />
-      </div>
-    )
+    if(this.props.visible) {
+      return (
+        <div>
+          <h2 style={{textAlign: 'left', paddingLeft: '5%', paddingTop: '5%'}}>Announcements</h2>
+          <List
+            itemLayout="horizontal"
+            style={{textAlign: 'left'}}
+            dataSource={this.state.messages}
+            renderItem={item => (
+              <List.Item>
+                <List.Item.Meta
+                  avatar={<Avatar user={item.userStore.users[item.senderId].name} />}
+                  title={item.userStore.users[item.senderId].name + " (" + moment(item.createdAt).format("lll") + ")"}
+                  description={item.parts[0].payload.content}
+                />
+              </List.Item>
+            )}
+          />
+        </div>
+      )
+    }
+    return null;
   }
 
   async getRoomMessages () {

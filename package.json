@@ -18,6 +18,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-geolocated": "3.0.1",
+    "react-streetview": "1.1.1",
     "sass-loader": "8.0.0",
     "style-loader": "1.0.0",
     "sugarss": "2.0.0",
