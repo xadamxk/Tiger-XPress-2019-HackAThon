@@ -10,7 +10,7 @@ export default class Map extends React.Component {
             viewport: {
                 latitude: 33.469567,
                 longitude: -86.919618,
-                zoom: 13
+                zoom: 12.5
             }
         }
     }
@@ -50,7 +50,7 @@ export default class Map extends React.Component {
 
         return (
             <MapGL
-                style={{ width: '100%', height: '800px' }}
+                style={{ width: '100%', height: '400px' }}
                 mapStyle='mapbox://styles/mapbox/light-v9'
                 accessToken={getMapboxAPIKey()}
                 onViewportChange={(viewport) => this.setState({ viewport })}
@@ -66,6 +66,9 @@ export default class Map extends React.Component {
                                 type='circle'
                                 source={"stop" + i}
                                 paint={{ 'circle-color': colors[i], 'circle-radius': 7 }}
+                                onClick={(item => {
+                                    // Do work fam
+                                })}
                             />
                         </div>
                     )
