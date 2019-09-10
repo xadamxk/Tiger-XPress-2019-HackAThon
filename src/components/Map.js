@@ -8,8 +8,8 @@ export default class Map extends React.Component {
         super(props);
         this.state = {
             viewport: {
-                latitude: 33.453664,
-                longitude: -86.928136,
+                latitude: 33.49065,
+                longitude: -86.906867,
                 zoom: 14,
                 stops: [],
                 routes: []
