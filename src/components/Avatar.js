@@ -13,11 +13,11 @@ export default class Avatar extends React.Component {
         }
     }
     const avatar = hash % 4
-    const src = "../images/appicon" + avatar + ".png"
+    const src = "https://2019hackathonuabteam1.s3.amazonaws.com/appicon" + avatar + ".png"
     console.log(src)
 
     return (
-      <img src={src} alt={avatar} />
+      <img src={src} alt={avatar} width="53" height="53" />
     )
   }
 }
