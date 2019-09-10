@@ -18,14 +18,14 @@ export default class Announcements extends React.Component {
   }
 
   render() {
-    console.log("test")
+    //console.log("test")
     //return (${this.messages.map(this.renderMessage)};)
     //return this.state.messages.map(this.renderMessage)
     //return(null)
 
     if(this.props.visible) {
       return (
-        <div>
+        <div style={{overflowY: 'scroll', height: '375px'}}>
           <h2 style={{textAlign: 'left', paddingLeft: '5%', paddingTop: '5%'}}>Announcements</h2>
           <List
             itemLayout="horizontal"
