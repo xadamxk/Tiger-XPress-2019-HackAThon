@@ -2,16 +2,23 @@ import React from "react";
 import MapGL, { Source, Layer, Marker } from '@urbica/react-map-gl';
 import { getMapboxAPIKey, getStops, getRoutes } from "../services/api/Helper";
 import { geolocated } from "react-geolocated";
+import StopInfo from "./StopInfo";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 class Map extends React.Component {
     constructor(props) {
         super(props);
+        this.handler = this.handler.bind(this);
         this.state = {
             viewport: {
                 latitude: 33.472500, // vertical
                 longitude: -86.920000, // horizontal
-                zoom: 12.25
+                zoom: 12.25,
+                showStopInfo: false,
+            },
+            stopInfo: {
+                lat: "",
+                lng: ""
             }
         }
     }
@@ -34,8 +41,14 @@ class Map extends React.Component {
         return routesState;
     }
 
+    handler() {
+        this.setState({
+            showStopInfo: false,
+        })
+    }
+
     render() {
-        let { stopInfo } = this.state;
+        let { stopInfo, showStopInfo } = this.state;
         let yourCoords = this.props.coords;
         let self = this;
         if (yourCoords) {
@@ -80,13 +93,12 @@ class Map extends React.Component {
                                             'circle-stroke-width': 3,
                                         }}
                                         onClick={(item) => {
-                                            // Do work fam
-                                            console.log(item["lngLat"]);
                                             self.setState({
                                                 stopInfo: {
                                                     lat: item["lngLat"]["lat"],
-                                                    long: item["lngLat"]["lng"]
-                                                }
+                                                    lng: item["lngLat"]["lng"]
+                                                },
+                                                showStopInfo: true
                                             });
                                         }}
                                     />
@@ -126,6 +138,14 @@ class Map extends React.Component {
                             <div style={style}>🏫</div>
                         </Marker>
                     </MapGL>
+                    {showStopInfo && (
+                        <StopInfo
+                            lat={stopInfo["lat"]}
+                            long={stopInfo["lng"]}
+                            visible={showStopInfo}
+                            handler={this.handler}
+                        />
+                    )}
 
                 </div>
             )
