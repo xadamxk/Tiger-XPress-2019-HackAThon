@@ -1,6 +1,6 @@
 import React from "react";
 import MapGL, { Source, Layer, Marker } from '@urbica/react-map-gl';
-import { getMapboxAPIKey, getStops, getRoutes, getRoadName } from "../services/api/Helper";
+import { getMapboxAPIKey, getStops, getRoutes } from "../services/api/Helper";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 export default class Map extends React.Component {
@@ -10,7 +10,7 @@ export default class Map extends React.Component {
             viewport: {
                 latitude: 33.469567,
                 longitude: -86.919618,
-                zoom: 12.5
+                zoom: 12.25
             }
         }
     }
@@ -37,7 +37,6 @@ export default class Map extends React.Component {
         const { viewport } = this.state;
         let stopData = this.getStopsData();
         let routeData = this.getRoutesData();
-        console.log(getRoadName());
 
         const onDragEnd = lngLat => {
             this.setState({ longitude: lngLat.lng, latitude: lngLat.lat });
@@ -67,15 +66,16 @@ export default class Map extends React.Component {
                                 type='circle'
                                 source={"stop" + i}
                                 paint={{
-                                    'circle-color': 'white',
+                                    'circle-color': colors[i],
                                     'circle-opacity': 0.5,
                                     'circle-radius': 5,
-                                    'circle-stroke-color': colors[i],
+                                    'circle-stroke-color': 'white',
                                     'circle-stroke-width': 3,
                                 }}
-                                onClick={(item => {
+                                onClick={(item) => {
                                     // Do work fam
-                                })}
+                                    console.log(item["lngLat"]);
+                                }}
                             />
                         </div>
                     )
@@ -96,6 +96,10 @@ export default class Map extends React.Component {
                                 paint={{
                                     'line-color': colors[i],
                                     'line-width': 3
+                                }}
+                                onClick={(item) => {
+                                    // Do work fam
+                                    console.log(item);
                                 }}
                             />
                         </div>
