@@ -1,6 +1,6 @@
 import React from "react";
 import MapGL, { Source, Layer, Marker } from '@urbica/react-map-gl';
-import { getMapboxAPIKey, getStops, getRoutes } from "../services/api/Helper";
+import { getMapboxAPIKey, getStops, getRoutes, getRoadName } from "../services/api/Helper";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 export default class Map extends React.Component {
@@ -37,6 +37,7 @@ export default class Map extends React.Component {
         const { viewport } = this.state;
         let stopData = this.getStopsData();
         let routeData = this.getRoutesData();
+        console.log(getRoadName());
 
         const onDragEnd = lngLat => {
             this.setState({ longitude: lngLat.lng, latitude: lngLat.lat });

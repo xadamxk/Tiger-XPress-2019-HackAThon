@@ -361,3 +361,24 @@ export function getRoutes() {
         }
     });
 }
+
+export function getRoadName() {
+    let roads = [
+        "Roberson Rd",
+        "Fairfax Drive",
+        "4th Avenue",
+        "Glen Park Drive",
+        "Highland Drive",
+        "57th Street",
+        "55th Alley",
+        "Jerry Coleman Street",
+        "61st Street",
+        "66th Street",
+        "Maryon Massey Blvd",
+        "Ave E",
+        "Court E",
+        "Terrace Avenue",
+        "Court G"
+    ];
+    return roads[Math.floor(Math.random() * roads.length)];
+}
