@@ -51,8 +51,12 @@ export default class App extends React.Component {
         <Header
           onMore={this.openDrawer.bind(this)}
         />
-        <Map openStreetView={this.openStreetView}/>
-        <Announcements visible={this.state.secondaryView === 'Announcements'}/>
+        <Map
+          openStreetView={this.openStreetView.bind(this)}
+        />
+        <Announcements
+          visible={this.state.secondaryView === 'Announcements'}
+        />
         <StreetView
           visible={this.state.secondaryView === 'StreetView'}
           latitude={this.state.streetViewLat}
@@ -61,6 +65,7 @@ export default class App extends React.Component {
         <FavoritesDrawer
           visible={this.state.drawerOpen}
           onClose={this.closeDrawer.bind(this)}
+          openStreetView={this.openStreetView.bind(this)}
         />
       </Row>
     );
