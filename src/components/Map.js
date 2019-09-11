@@ -182,6 +182,16 @@ class Map extends React.Component {
                         <Marker longitude={yourCoords["longitude"]} latitude={yourCoords["latitude"]} onDragEnd={onDragEnd}>
                             <div style={style}>📍</div>
                         </Marker>
+                        {/* Busses */}
+                        <Marker longitude={-86.916023} latitude={33.473527} onDragEnd={onDragEnd}>
+                            <div style={style}>🚌</div>
+                        </Marker>
+                        <Marker longitude={-86.935013} latitude={33.456378} onDragEnd={onDragEnd}>
+                            <div style={style}>🚌</div>
+                        </Marker>
+                        <Marker longitude={-86.922336} latitude={33.467604} onDragEnd={onDragEnd}>
+                            <div style={style}>🚌</div>
+                        </Marker>
                     </MapGL>
                     {showStopInfo && (
                         <StopInfo
