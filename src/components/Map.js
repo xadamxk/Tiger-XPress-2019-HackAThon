@@ -65,7 +65,13 @@ export default class Map extends React.Component {
                                 id={"stop" + i}
                                 type='circle'
                                 source={"stop" + i}
-                                paint={{ 'circle-color': colors[i], 'circle-radius': 7 }}
+                                paint={{
+                                    'circle-color': 'white',
+                                    'circle-opacity': 0.5,
+                                    'circle-radius': 5,
+                                    'circle-stroke-color': colors[i],
+                                    'circle-stroke-width': 3,
+                                }}
                                 onClick={(item => {
                                     // Do work fam
                                 })}
