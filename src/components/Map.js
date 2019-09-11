@@ -62,9 +62,9 @@ class Map extends React.Component {
             case 'route1': {
                 this.setState({
                     viewport: {
-                        latitude: 33.462000,
+                        latitude: 33.461000,
                         longitude: -86.930000,
-                        zoom: 13.4,
+                        zoom: 13.6,
                     }
                 });
                 break;
@@ -72,9 +72,9 @@ class Map extends React.Component {
             case 'route2': {
                 this.setState({
                     viewport: {
-                        latitude: 33.472500,
-                        longitude: -86.920000,
-                        zoom: 12.25,
+                        latitude: 33.467800,
+                        longitude: -86.926582,
+                        zoom: 13.6,
                     }
                 });
                 break;
