@@ -1,0 +1,195 @@
+body {
+	margin-top: 50px;
+	font-family: 'Luckiest Guy', cursive;
+	background-color: #1d1f20;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	box-sizing: border-box;
+}
+
+.phone-container {
+	position: relative;
+	width: 300px;
+	height: 500px;
+    margin-right: 50px;
+
+	.phone-svg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		fill: white;
+	}
+	.screen-border-svg {
+		position: absolute;
+		fill: black;
+		width: 100%;
+		height: 100%;
+	}
+	.screen-svg {
+		position: absolute;
+		fill: #aa1f24;
+		width: 100%;
+		height: 100%;
+	}
+	.screen {
+		background-color: transparent;
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+		position: relative;
+		.sns {
+			display: inline-block;
+			transform: rotate(-20deg);
+			.lettering-under {
+				position: absolute;
+				display: inline;
+				left: 10px;
+				top: 30px;
+				font-size: 3em;
+				letter-spacing: -4px;
+				font-weight: bold;
+				overflow: visible;
+				//width:40px;
+				height: 30px;
+				line-height: 0.6em;
+				border-radius: 15%;
+				background-color: black;
+			}
+			.lettering {
+				position: absolute;
+				left: 14px;
+				top: 26px;
+				color: white;
+				font-size: 2.2em;
+				letter-spacing: 2.5px;
+			}
+		}
+		.zig-shadow {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			height: 400px;
+			fill: darken(#aa1f24, 10%);
+		}
+		.zig {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			height: 400px;
+		}
+		.messages {
+			/*position: absolute;
+			left: 14px;
+			top: 27px;*/
+			//box-sizing: content-box;
+			position: absolute;
+			left: 38px;
+			top: 82px;
+			width: 185px;
+			height: 320px;
+			//border: 1px black dashed;
+			.contact {
+				position: relative;
+				display: block;
+				height: 55px;
+				margin-bottom: 8px;
+
+				.text-container {
+					position: absolute;
+
+					.accent-outline-1,
+					.text-outline-1 {
+						fill: white;
+					}
+					.accent-outline-2,
+					.text-outline-2 {
+						fill: black;
+					}
+
+					.text-outline-1,
+					.text-outline-2 {
+						top: -12px;
+						left: 2px;
+					}
+
+					.text-skew {
+						transform: rotate(-2.5deg);
+						label {
+							color: white;
+							position: absolute;
+							left: 88px;
+							top: 12px;
+							width: 115px;
+							font-size: 0.9em;
+						}
+					}
+
+					.message-type {
+						position: absolute;
+						left: 175px;
+						top: -50px;
+						transform: rotate(12deg);
+						.lettering-outline{
+							fill:white;
+							position:absolute;
+							left: 16px;
+							top: 22px;
+						}
+						.lettering {
+							position: absolute;
+							left: 18px;
+							top: 22px;
+							color: black;
+							font-size: 1.5em;
+							letter-spacing: 2px;
+						}
+
+					}
+				}
+				img {
+					position: absolute;
+					left: 12px;
+					top: -15px;
+					width: 50px;
+					height: 50px;
+				}
+				svg {
+					position: absolute;
+				}
+				.border {
+					fill: black;
+				}
+				.outline {
+					fill: white;
+				}
+				.panel,
+				.panel-a {
+					fill: #e3e752;
+				}
+				.panel-b {
+					fill: #fa9cd4;
+				}
+			}
+			.ellipse {
+				position: relative;
+				svg {
+					width: 65px;
+					height: 70px;
+					position: absolute;
+					left: 0px;
+					top: 0px;
+					fill: darken(#aa1f24, 10%);
+				}
+				span {
+					position: absolute;
+					left: 25px;
+					top: 3px;
+					font-size: 1.5em;
+					color: #aa1f24;
+				}
+			}
+		}
+	}
+}
