@@ -2,7 +2,7 @@ import React from "react";
 import { Popover, Button, Modal } from "antd";
 import { distance } from "../lib/distance"
 import { geolocated } from "react-geolocated";
-
+import ReactStreetview from 'react-streetview';
 
 class StopInfo extends React.Component {
   constructor(props) {
@@ -14,10 +14,17 @@ class StopInfo extends React.Component {
   render() {
     let yourCoords = this.props.coords;
     if (yourCoords) {
+      const googleMapsApiKey = 'AIzaSyA23OyaGg0FVlayph8YMq6Wc1ShPBj1FFo';
+      const streetViewPanoramaOptions = {
+        position: { lat: this.props.lat, lng: this.props.long },
+        pov: { heading: 100, pitch: 0 },
+        zoom: 1
+      };
       const content = (
         <div>
-          <p>Distance from you: {distance(this.props.coords.latitude, this.props.coords.longitude, this.props.lat, this.props.long).toFixed(2)} miles</p>
-          <p style={{ textDecoration: 'underline' }} onClick={() => this.props.openStreetView(this.props.lat, this.props.long)}>Click here to see this in Street View</p>
+          <p><strong>Distance from you:</strong> {distance(this.props.coords.latitude, this.props.coords.longitude, this.props.lat, this.props.long).toFixed(2)} miles</p>
+          <p><strong>Route:</strong> 1405</p>
+          <p><strong>Bus:</strong> #1</p>
         </div>
       );
 
@@ -36,6 +43,15 @@ class StopInfo extends React.Component {
           footer={null}
         >
           {content}
+          <div style={{
+            width: '350px',
+            height: '450px'
+          }}>
+            <ReactStreetview
+              apiKey={googleMapsApiKey}
+              streetViewPanoramaOptions={streetViewPanoramaOptions}
+            />
+          </div>
         </Modal>
       );
     } else {

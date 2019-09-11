@@ -11,11 +11,11 @@ class Map extends React.Component {
         this.handler = this.handler.bind(this);
         this.state = {
             viewport: {
-                latitude: 33.472500, // vertical
-                longitude: -86.920000, // horizontal
+                latitude: 33.472500,
+                longitude: -86.920000,
                 zoom: 12.25,
-                showStopInfo: false,
             },
+            showStopInfo: false,
             stopInfo: {
                 lat: "",
                 lng: ""
@@ -47,6 +47,51 @@ class Map extends React.Component {
         })
     }
 
+    adjustScreenSize(name) {
+        switch (name) {
+            case 'route0': {
+                this.setState({
+                    viewport: {
+                        latitude: 33.482500, // up/down
+                        longitude: -86.908482, // right/left
+                        zoom: 13.0,
+                    }
+                });
+                break;
+            }
+            case 'route1': {
+                this.setState({
+                    viewport: {
+                        latitude: 33.462000,
+                        longitude: -86.930000,
+                        zoom: 13.4,
+                    }
+                });
+                break;
+            }
+            case 'route2': {
+                this.setState({
+                    viewport: {
+                        latitude: 33.472500,
+                        longitude: -86.920000,
+                        zoom: 12.25,
+                    }
+                });
+                break;
+            }
+            default: {
+                this.setState({
+                    viewport: {
+                        latitude: 33.472500,
+                        longitude: -86.920000,
+                        zoom: 12.25,
+                    }
+                });
+                break;
+            }
+        }
+    }
+
     render() {
         let { stopInfo, showStopInfo } = this.state;
         let yourCoords = this.props.coords;
@@ -55,7 +100,6 @@ class Map extends React.Component {
             const { viewport } = this.state;
             let stopData = this.getStopsData();
             let routeData = this.getRoutesData();
-            // console.log(yourLocation)
             const onDragEnd = lngLat => {
                 this.setState({ longitude: lngLat.lng, latitude: lngLat.lat });
             };
@@ -64,7 +108,7 @@ class Map extends React.Component {
                 fontSize: "20px"
             };
 
-            const colors = ["#1EA362", "#DD4B3E", "#4A89F3", "#822F2B"];
+            const colors = ["#1EA362", "#DD4B3E", "#4A89F3", "#822F2B"]; // Green, Red, Blue
 
             return (
                 <div>
@@ -122,8 +166,7 @@ class Map extends React.Component {
                                             'line-width': 3
                                         }}
                                         onClick={(item) => {
-                                            // Do work fam
-                                            console.log(item);
+                                            self.adjustScreenSize(item["features"][0]["source"]);
                                         }}
                                     />
                                 </div>
