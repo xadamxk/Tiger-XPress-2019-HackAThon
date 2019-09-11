@@ -1,14 +1,14 @@
 import React from "react";
 import { PageHeader, Icon, Row, Col } from 'antd';
 import { geolocated } from "react-geolocated";
-import { getClosest } from "../lib/distance"
+import { getClosest, getClosestDetail } from "../lib/distance"
 
 class Header extends React.Component {
   renderSubtitle = () => {
     if (this.props.coords) {
       return (
         <span>
-          Closest Bus Stop is { getClosest(this.props.coords.latitude, this.props.coords.longitude).toFixed(2) } miles away.
+          Closest Bus Stop is { getClosest(this.props.coords.latitude, this.props.coords.longitude).toFixed(2) } miles away at { getClosestDetail(this.props.coords.latitude, this.props.coords.longitude)[3]}
         </span>
       )
     }
@@ -21,7 +21,7 @@ class Header extends React.Component {
       <Row>
         <Col span={18}>
           <PageHeader
-            title="Bus Routes"
+            title="Tiger Xpress"
             subTitle={this.renderSubtitle()}
           />
         </Col>

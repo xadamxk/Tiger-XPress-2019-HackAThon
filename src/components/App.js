@@ -12,11 +12,20 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      firstLoad: true,
       drawerOpen: false,
       secondaryView: 'Announcements',
       streetViewLat: 0.0,
       streetViewLong: 0.0
     };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        firstLoad: false
+      })
+    }, 2000)
   }
 
   closeDrawer() {
@@ -46,6 +55,17 @@ export default class App extends React.Component {
   }
 
   render() {
+    if (this.state.firstLoad) {
+      return (
+        <div
+        style={{verticalAlign: 'middle', backgroundColor: '#f0bb28', height: "850px", paddingTop: "30%"}}>
+          <img
+            src='https://2019hackathonuabteam1.s3.amazonaws.com/splash_screen.gif'
+            alt='splash screen lost in the void'
+          />
+        </div>
+      )
+    }
     return (
       <Row>
         <Header

@@ -1,7 +1,8 @@
 import React from "react";
 import { Popover, Button, Modal } from "antd";
-import { distance } from "../lib/distance"
+import { route1401, distance } from "../lib/distance"
 import { geolocated } from "react-geolocated";
+import { getRoadName } from "../services/api/Helper"
 import ReactStreetview from 'react-streetview';
 
 class StopInfo extends React.Component {
@@ -20,11 +21,23 @@ class StopInfo extends React.Component {
         pov: { heading: 100, pitch: 0 },
         zoom: 1
       };
+      console.log(this.props.long)
+      const result = route1401.geometry.coordinates.filter(route => route[0].toFixed(3) === this.props.long.toFixed(3))
+      if (result.length === 0) {
+        result[0] = []
+        result[0][3] = getRoadName()
+        result[0][2] = "7:43am"
+        result[0][4] = "3:35PM"
+      }
+      console.log(result)
+
       const content = (
         <div>
+          <p><h3>{result[0][3]}</h3></p>
           <p><strong>Distance from you:</strong> {distance(this.props.coords.latitude, this.props.coords.longitude, this.props.lat, this.props.long).toFixed(2)} miles</p>
-          <p><strong>Route:</strong> 1405</p>
-          <p><strong>Bus:</strong> #1</p>
+          <p><strong>Route:</strong> 3</p>
+          <p><strong>Pick-up Time:</strong> {result[0][2]}</p>
+          <p><strong>Drop-off Time:</strong> {result[0][4]}</p>
         </div>
       );
 

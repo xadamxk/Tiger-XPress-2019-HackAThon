@@ -2,6 +2,7 @@ import React from "react";
 import { Drawer, List } from 'antd';
 import { geolocated } from "react-geolocated";
 import { distance, get3ClosestDetail, getClosestDetail } from "../lib/distance"
+import StopInfo from "./StopInfo";
 
 class FavoritesDrawer extends React.Component {
   render() {
@@ -18,13 +19,9 @@ class FavoritesDrawer extends React.Component {
           renderItem={item => (
             <List.Item key={JSON.stringify(item)}>
               <List.Item.Meta
-                title="put address here"
+                title={item[3]}
                 description= { "Distance: " + distance(this.props.coords.latitude, this.props.coords.longitude, item[1], item[0]).toFixed(2) + " miles" }
               />
-              <p onClick={() => {
-                this.props.openStreetView(item[1], item[0])
-                this.props.onClose()
-              }}>Open Street View</p>
             </List.Item>
           )}
         />

@@ -1,4 +1,4 @@
-const route1401 = {
+export const route1401 = {
     type: 'Feature',
     geometry: {
         type: 'LineString',
@@ -22,64 +22,25 @@ const route1401 = {
             [-86.930819, 33.465963,"7:36 am","1101 Cambridge Circle","4:01 PM"],
             [-86.930993, 33.4685918,"7:40 am","1420 Cambridge Blvd","3:35 PM"],
             // 2
-            [-86.9212668, 33.4602372],
-            [-86.9202489, 33.4613829],
-            [-86.918102, 33.4616704],
-            [-86.9166476, 33.4629224],
-            [-86.9174697, 33.4650425],
-            [-86.916622, 33.465081],
-            [-86.9160506, 33.4626561],
-            [-86.9169999, 33.4614876],
-            [-86.9186049, 33.4602588],
-            [-86.9207805, 33.4587375],
-            [-86.9220986, 33.4593501],
-            [-86.9228749, 33.4606401],
-            [-86.9225976, 33.4621511],
-            [-86.920449, 33.464128],
-            [-86.9199359, 33.4634851],
-            [-86.9210319, 33.463031],
-            [-86.921372, 33.464627],
-            [-86.9229499, 33.4643907],
-            [-86.9245547, 33.4635993],
-            [-86.9248864, 33.4625942],
-            [-86.9257829, 33.4637998],
-            [-86.9269031, 33.4654508],
-            [-86.9246142, 33.4655687],
-            [-86.9232921, 33.4665866],
-            [-86.9239676, 33.4701969],
-            [-86.919522, 33.4692013],
-            [-86.9221529, 33.4680798],
-            [-86.924314, 33.4682649],
-            [-86.9265736, 33.4675338],
-            [-86.9271912, 33.4676884],
-            [-86.9282338, 33.4695079],
-            [-86.919522, 33.4692013],
-            [-86.9260916, 33.4707176],
-            [-86.9281947, 33.4741871],
-            [-86.9263943, 33.4751923],
-            [-86.9243101, 33.4747144],
-            [-86.9239149, 33.471516],
-            [-86.9260029, 33.4712899],
-            [-86.9257479, 33.4723648],
-            [-86.9256858, 33.4744454],
+            [-86.9212668, 33.4602372,"7:30 am","Ave. C and 61st Street (Back side of Robinson)","4:05 pm"],
+            [-86.9202489, 33.4613829,"7:33 am ","Avenue C and Jerry D. Coleman","4:07 pm"],
+            [-86.918102, 33.4616704,"7:35 am ","61st Street and Myron Massey Blvd.","4:12 pm"],
+            [-86.9166476, 33.4629224,"7:32 am ","60th Street and Myron Massey Blvd.","4:12 pm"],
+            [-86.9174697, 33.4650425,"7:33 am","Myron Massey Blvd. and 55th Place","3:53 pm"],
+            [-86.916622, 33.465081,"7:35 A.M","Myron Massey Blvd. and 53rd Place","3:55 pm"],
+            [-86.9160506, 33.4626561,"7:37 am","516 54th Street (Middle of the block)","3:57 pm"],
+            [-86.9169999, 33.4614876,"7:41 am","54th and Avenue D","3:59 pm"],
+            [-86.9186049, 33.4602588,"7:43 am","5174 Hillside Drive","3:46 pm"],
+            [-86.9207805, 33.4587375,"7:44 am","721 Court G","3:49 pm"],
             // 3
-            [-86.9137218, 33.4749726],
-            [-86.909993, 33.4747869],
-            [-86.9097361, 33.4732608],
-            [-86.9121553, 33.4718108],
-            [-86.9159525, 33.4712666],
-            [-86.9147473, 33.4735524],
-            [-86.9151501, 33.4749836],
-            [-86.9151707, 33.4758812],
-            [-86.9072995, 33.4769925],
-            [-86.9071763, 33.4771589],
-            [-86.9070934, 33.4827151],
-            [-86.9070929, 33.4823689],
-            [-86.9128795, 33.4836404],
-            [-86.9117931, 33.4868579],
-            [-86.9136822, 33.4776958],
-            [-86.9106186, 33.4842922],
-            [-86.9053397, 33.4848146]
+            [-86.9137218, 33.4749726,"7:27 AM","64th Street and Court F","3:47 PM"],
+            [-86.909993, 33.4747869,"7:28 AM","65th Street and Myron Massey Blvd.","3:48 PM"],
+            [-86.9097361, 33.4732608,"7:30 AM","6616 Myron Massey Blvd.","3:50 PM"],
+            [-86.9121553, 33.4718108,"7:33 AM","Terrace Court and Avenue D","3:52 PM"],
+            [-86.9159525, 33.4712666,"7:34 A.M","Terrace Court (by the fire hydrate, just","3:53 PM"],
+            [-86.9147473, 33.4735524,"7:36 AM","66th Street and Avenue C","3:55 PM"],
+            [-86.9151501, 33.4749836,"7:38 AM","64th Street and Avenue C (High/Middle school  ","3:59 PM"],
+            [-86.9151707, 33.4758812,"3:45 PM","Fairfield High Preparatory School","7:45 AM"]
         ]
     }
 }
@@ -87,7 +48,7 @@ const route1401 = {
 export function getClosest(lat1, long1) {
 
 
-    console.log(route1401.geometry.coordinates.coordinates)
+    //console.log(route1401.geometry.coordinates)
     const route1401dist = route1401.geometry.coordinates.map(x => distance(lat1, long1, x[1], x[0], 'M'))
     //console.log(route1401dist)
 
@@ -99,7 +60,7 @@ const reducer = (smallVal, currentVal) => smallVal < currentVal ? smallVal : cur
 export function getClosestDetail(lat1, long1) {
 
     const route1401dist = route1401.geometry.coordinates.map(x => distance(lat1, long1, x[1], x[0], 'M'))
-    const maxIndex = route1401dist.indexOf(Math.max(route1401dist))
+    const maxIndex = route1401dist.indexOf(Math.min(...route1401dist))
 
     return route1401.geometry.coordinates[maxIndex]
 }
@@ -108,7 +69,7 @@ export function get3ClosestDetail(lat1, long1) {
     //console.log(route1401.geometry.coordinates)
 
     const route1401dist = route1401.geometry.coordinates.map(x => distance(lat1, long1, x[1], x[0], 'M'))
-    const maxIndex = route1401dist.indexOf(Math.max(...route1401dist))
+    const maxIndex = route1401dist.indexOf(Math.min(...route1401dist))
     var copy = [].concat(route1401.geometry.coordinates)
     copy.splice(maxIndex, 1)
     //console.log(route1401.geometry.coordinates)
@@ -116,13 +77,13 @@ export function get3ClosestDetail(lat1, long1) {
     //console.log(copy)
 
     const route1401dist_2 = copy.map(x => distance(lat1, long1, x[1], x[0], 'M'))
-    const maxIndex_2 = route1401dist_2.indexOf(Math.max(...route1401dist_2))
+    const maxIndex_2 = route1401dist_2.indexOf(Math.min(...route1401dist_2))
     //console.log(copy)
 
     var copy_2 = [].concat(copy)
     copy_2.splice(maxIndex_2, 1)
     const route1401dist_3 = copy_2.map(x => distance(lat1, long1, x[1], x[0], 'M'))
-    const maxIndex_3 = route1401dist_3.indexOf(Math.max(...route1401dist_3))
+    const maxIndex_3 = route1401dist_3.indexOf(Math.min(...route1401dist_3))
     //console.log(copy_2)
     //console.log(route1401.geometry.coordinates[maxIndex] + " blah2" + route1401_2[maxIndex_2] + " blah3" + route1401_3[maxIndex_3] + " " + maxIndex + " " + maxIndex_2 + " -- " + route1401.geometry.coordinates)
     //console.log(route1401.geometry.coordinates + " " + maxIndex)
