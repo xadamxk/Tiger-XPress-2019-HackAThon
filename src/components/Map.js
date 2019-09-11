@@ -55,7 +55,6 @@ class Map extends React.Component {
             const { viewport } = this.state;
             let stopData = this.getStopsData();
             let routeData = this.getRoutesData();
-            let yourLocation = [yourCoords["longitude"], yourCoords["latitude"]]
             // console.log(yourLocation)
             const onDragEnd = lngLat => {
                 this.setState({ longitude: lngLat.lng, latitude: lngLat.lat });
@@ -136,6 +135,9 @@ class Map extends React.Component {
                         </Marker>
                         <Marker longitude={-86.928096} latitude={33.459905} onDragEnd={onDragEnd}>
                             <div style={style}>🏫</div>
+                        </Marker>
+                        <Marker longitude={yourCoords["longitude"]} latitude={yourCoords["latitude"]} onDragEnd={onDragEnd}>
+                            <div style={style}>📍</div>
                         </Marker>
                     </MapGL>
                     {showStopInfo && (
