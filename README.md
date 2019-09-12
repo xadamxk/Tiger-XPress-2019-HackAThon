@@ -1,4 +1,4 @@
-# 2019HackaThonUABTeam1
+# Tiger XPress (2019 Hack-A-Thon)
 Witty description.
 
 ## Installation
@@ -12,4 +12,8 @@ Pull the project to your local machine
 Navigate to the project directory and run the following command to pull in any dependencies:
 ```bash
 yarn
+```
+Start the application:
+```bash
+yarn start
 ```
