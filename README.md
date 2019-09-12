@@ -18,5 +18,5 @@ Start the application:
 yarn start
 ```
 
-##
+## Screenshot
 ![Preview of Application](https://github.com/xadamxk/Tiger-XPress-2019-HackAThon/blob/master/src/assets/preview.png?raw=true)
