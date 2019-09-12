@@ -1,5 +1,5 @@
 # Tiger XPress (2019 Hack-A-Thon)
-Witty description.
+Avoid the Wait, Don't be Late
 
 ## Installation
 
@@ -17,3 +17,6 @@ Start the application:
 ```bash
 yarn start
 ```
+
+##
+![Preview of Application](https://github.com/xadamxk/Tiger-XPress-2019-HackAThon/blob/master/src/assets/preview.png?raw=true)
